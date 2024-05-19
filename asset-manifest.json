@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/LA-Income-React/static/css/main.e6c13ad2.css",
+    "main.js": "/LA-Income-React/static/js/main.bee50a8a.js",
+    "static/js/453.cbf5f4f6.chunk.js": "/LA-Income-React/static/js/453.cbf5f4f6.chunk.js",
+    "index.html": "/LA-Income-React/index.html",
+    "main.e6c13ad2.css.map": "/LA-Income-React/static/css/main.e6c13ad2.css.map",
+    "main.bee50a8a.js.map": "/LA-Income-React/static/js/main.bee50a8a.js.map",
+    "453.cbf5f4f6.chunk.js.map": "/LA-Income-React/static/js/453.cbf5f4f6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.bee50a8a.js"
+  ]
+}
