@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import MapComponent from './components/MapComponent';
+import ChartComponent from './components/ChartComponent';
+import { fetchACSIncomeData } from './utils/fetchData';
 
 function App() {
+  const [incomeDataByTract, setIncomeDataByTract] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const incomeData = await fetchACSIncomeData();
+      setIncomeDataByTract(incomeData);
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MapComponent />
+      <div id="chartContainer" style={{ position: 'absolute', top: '10px', left: '10px', width: '300px', height: '200px', zIndex: '10', backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+        <ChartComponent incomeDataByTract={incomeDataByTract} />
+      </div>
+      <button id="toggleChart" style={{ position: 'absolute', top: '10px', left: '320px', zIndex: '11' }} onClick={() => {
+        const chartContainer = document.getElementById('chartContainer');
+        chartContainer.style.display = chartContainer.style.display === 'none' ? 'block' : 'none';
+      }}>
+        Toggle Chart
+      </button>
     </div>
   );
 }
